@@ -1,5 +1,5 @@
-# Aiven cloud selection
-
+# Aiven cloud selection 
+[![Build Status](https://www.travis-ci.com/mirmousaviii/aiven-cloud-selection.svg?branch=main)](https://www.travis-ci.com/mirmousaviii/aiven-cloud-selection)
 A simple project for Aiven cloud selection
 
 ## How to use:
