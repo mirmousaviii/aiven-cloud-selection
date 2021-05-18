@@ -5,7 +5,7 @@ A simple project for Aiven cloud selection
 ## How to use:
 
 You must rename `.env.sample` to `.env` then set **base url** in the file\
-_* The .env file is existed in the version for run easily ;-)_
+_* The .env file is existed in the version for run easily :wink:_
 
 ### `yarn start`
 
@@ -14,11 +14,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the test runner in the interactive watch mode.
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.\
+Builds the app for production to the `build` folder.
 
 ## Screenshot
 ![](documentation/screenshot/cloud-page-1.png)
@@ -42,6 +42,7 @@ Builds the app for production to the `build` folder.\
 - [ ] Unit test by Jest
 - [ ] E2E test by Cypress
 - [x] CI/CD
+- [ ] Configure .env base on environment
 - [ ] OPTIMIZE code
 
 ## References:
