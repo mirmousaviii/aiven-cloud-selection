@@ -29,9 +29,14 @@ function HomePage() {
           <ListItem>
             <Button
                 color="secondary"
-                aria-label="Calendar"
                 component={Link}
                 to="/">Home page</Button>
+          </ListItem>
+          <ListItem>
+            <Button
+                color="secondary"
+                component={Link}
+                to="/clouds">Cloud page</Button>
           </ListItem>
         </List>
       </DefaultLayout>
