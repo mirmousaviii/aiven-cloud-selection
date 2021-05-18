@@ -17,22 +17,22 @@ function CloudsPage() {
           }));
         })
         .then(response => {
-          console.table(response);
           setClouds(response);
           setIsLoading(false);
+          // console.table(response);
         })
         .catch(error => {
           //TODO: Use material-ui for show errors
-          console.log(error.message);
           alert(error.message);
           setIsLoading(false);
+          // console.log(error.message);
         });
   }, []);
 
   return (
       <DefaultLayout>
         <Typography variant="h5" gutterBottom>
-          Clouds list
+          Clouds list (Alpha version)
         </Typography>
         <CloudsDataGrid data={clouds} isLoading={isLoading}/>
       </DefaultLayout>
