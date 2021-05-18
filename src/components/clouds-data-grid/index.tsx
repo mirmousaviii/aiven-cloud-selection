@@ -10,7 +10,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CloudsDataGrid({data, isLoading}) {
+type propsType = {
+  data: object[],
+  isLoading: boolean
+}
+function CloudsDataGrid({data, isLoading}: propsType) {
   const classes = useStyles();
 
   const columns = [

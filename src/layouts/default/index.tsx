@@ -6,10 +6,10 @@ import Header from './header';
 import Footer from './footer';
 
 const theme = createMuiTheme({
-  palette: {
-    primary: deepOrange,
-    secondary: blue,
-  },
+    palette: {
+        primary: deepOrange,
+        secondary: blue,
+    },
 });
 
 /**
@@ -17,18 +17,18 @@ const theme = createMuiTheme({
  * @param  {children} Children
  * @return {JSX.Element}
  */
-function DefaultLayout({children}) {
-  return (
-      <ThemeProvider theme={theme}>
-        <AppBar position="static">
-          <Header/>
-        </AppBar>
-        <Box m={3} minHeight="80vh">
-          {children}
-        </Box>
-        <Footer/>
-      </ThemeProvider>
-  );
+const DefaultLayout: React.FC = ({children}): JSX.Element => {
+    return (
+        <ThemeProvider theme={theme}>
+            <AppBar position="static">
+                <Header/>
+            </AppBar>
+            <Box m={3} minHeight="80vh">
+                {children}
+            </Box>
+            <Footer/>
+        </ThemeProvider>
+    );
 }
 
 export default DefaultLayout;

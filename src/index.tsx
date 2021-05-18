@@ -5,10 +5,8 @@ import AppRoute from './routes';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <AppRoute/>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <AppRoute/>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
