@@ -36,7 +36,7 @@ Builds the app for production to the `build` folder.
 - [x] Loading
 - [x] Feature simple filter and sort by data-grid
 - [x] Feature export csv by data-grid
-- [ ] Feature filter by cloud provider
+- [x] Feature filter by cloud provider
 - [ ] Feature filter distance (Geolocation)
 - [ ] State manager by Redux
 - [ ] Redux middleware by Redux Thunk

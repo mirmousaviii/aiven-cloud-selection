@@ -5,9 +5,15 @@ interface CloudResponse {
     clouds: Cloud[]
 }
 
-export const GetClouds = (perPage: number = 20) =>
-    MainServer.request<CloudResponse, { per_page: number }>(
+export const GetClouds = () =>
+    MainServer.request<CloudResponse>(
         'GET',
         `clouds`,
-        {per_page: perPage}
     );
+
+// export const GetClouds = (perPage: number = 20) =>
+//     MainServer.request<CloudResponse, { per_page: number }>(
+//         'GET',
+//         `clouds`,
+//         {per_page: perPage}
+//     );
