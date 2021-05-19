@@ -5,7 +5,7 @@ import {Cloud} from "../../types/cloud";
 
 const useStyles = makeStyles((theme) => ({
   table: {
-    height: '80vw',
+    height: 950,
     width: '100%',
   },
 }));

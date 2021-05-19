@@ -23,7 +23,7 @@ const DefaultLayout: React.FC = ({children}): JSX.Element => {
             <AppBar position="static">
                 <Header/>
             </AppBar>
-            <Box m={3} minHeight="80vh">
+            <Box m={3} minHeight="82vh">
                 {children}
             </Box>
             <Footer/>
