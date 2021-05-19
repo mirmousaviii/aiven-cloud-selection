@@ -4,13 +4,12 @@ import {GetClouds} from '../../services/api';
 import CloudsDataGrid from '../../components/clouds-data-grid';
 import {Typography} from "@material-ui/core";
 import {Cloud} from "../../types/cloud";
-import {Provider} from "../../types/provider";
-import FilterProvider from "../../components/filter-provider";
+import FilterProvider, {ProviderListItem} from "../../components/filter-provider";
 
 const CloudsPage: React.FC = (): JSX.Element => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [clouds, setClouds] = useState<Cloud[]>([]);
-    const [filterProvider, setFilterProvider] = useState<Provider>(Provider.all);
+    const [filterProvider, setFilterProvider] = useState<ProviderListItem>(ProviderListItem.ALL);
     const [filteredClouds, setFilteredClouds] = useState<Cloud[]>([]);
 
     useEffect(() => {
@@ -35,7 +34,7 @@ const CloudsPage: React.FC = (): JSX.Element => {
     }, []);
 
     useEffect(() => {
-        if (filterProvider === Provider.all) {
+        if (filterProvider === ProviderListItem.ALL) {
             setFilteredClouds(clouds);
         } else {
             const newFilteredClouds = clouds.filter((item) => item.cloud_name.startsWith(`${filterProvider}-`));
@@ -43,8 +42,8 @@ const CloudsPage: React.FC = (): JSX.Element => {
         }
     }, [clouds, filterProvider]);
 
-    const handlerFilterProvider = (event: React.ChangeEvent<{ value: Provider }>) => {
-        setFilterProvider(event.target.value as Provider);
+    const handleFilterProvider = (event: React.ChangeEvent<{ value: ProviderListItem }>) => {
+        setFilterProvider(event.target.value);
     };
 
     return (
@@ -52,7 +51,7 @@ const CloudsPage: React.FC = (): JSX.Element => {
             <Typography variant="h5" gutterBottom>
                 Clouds list (Alpha version)
             </Typography>
-            <FilterProvider filterProvider={filterProvider} onChange={handlerFilterProvider}/>
+            <FilterProvider value={filterProvider} onChange={handleFilterProvider}/>
 
             <CloudsDataGrid data={filteredClouds} isLoading={isLoading}/>
         </DefaultLayout>
