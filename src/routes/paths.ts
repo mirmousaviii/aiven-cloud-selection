@@ -10,15 +10,15 @@ export interface Path extends RouteProps {
 
 export const paths: Path[] = [
     {
-        path: '/',
+        path: '/home',
         component: HomePage,
-        exact: true,
+        exact: false,
         isPrivate: false,
     },
     {
-        path: '/clouds',
+        path: ['/', '/clouds'],
         component: CloudsPage,
-        exact: false,
+        exact: true,
         isPrivate: false,
     },
 ];

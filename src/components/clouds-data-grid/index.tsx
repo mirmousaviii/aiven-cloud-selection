@@ -1,7 +1,7 @@
 import React from 'react';
 import {DataGrid, GridToolbar} from '@material-ui/data-grid';
-import {makeStyles} from '@material-ui/core/styles';
-import {Box} from '@material-ui/core';
+import {Box, makeStyles} from '@material-ui/core';
+import {Cloud} from "../../types/cloud";
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -11,10 +11,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 type propsType = {
-  data: object[],
+  data: Cloud[],
   isLoading: boolean
 }
-function CloudsDataGrid({data, isLoading}: propsType) {
+function CloudsDataGrid({data, isLoading}: propsType): JSX.Element {
   const classes = useStyles();
 
   const columns = [

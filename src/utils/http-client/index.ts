@@ -2,14 +2,6 @@ import axios from 'axios';
 
 type Method = 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE';
 
-// enum Method {
-//     GET = 'GET',
-//     POST = 'POST',
-//     PATCH = 'PATCH',
-//     PUT = 'PUT',
-//     DELETE = 'DELETE'
-// };
-
 export class HttpClient {
     _baseUrl: string;
     _headers: AnyObject;
