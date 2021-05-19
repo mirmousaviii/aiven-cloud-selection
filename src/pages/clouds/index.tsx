@@ -1,12 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import DefaultLayout from '../../layouts/default';
-import Typography from '@material-ui/core/Typography';
 import {GetClouds} from '../../services/api';
 import CloudsDataGrid from '../../components/clouds-data-grid';
+import {Typography} from "@material-ui/core";
+import {Cloud} from "../../types/cloud";
+import {Provider} from "../../types/provider";
+import FilterProvider from "../../components/filter-provider";
 
 const CloudsPage: React.FC = (): JSX.Element => {
-    const [clouds, setClouds] = useState<object[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [clouds, setClouds] = useState<Cloud[]>([]);
+    const [filterProvider, setFilterProvider] = useState<Provider>(Provider.all);
+    const [filteredClouds, setFilteredClouds] = useState<Cloud[]>([]);
 
     useEffect(() => {
         setIsLoading(true);
@@ -29,12 +34,27 @@ const CloudsPage: React.FC = (): JSX.Element => {
             });
     }, []);
 
+    useEffect(() => {
+        if (filterProvider === Provider.all) {
+            setFilteredClouds(clouds);
+        } else {
+            const newFilteredClouds = clouds.filter((item) => item.cloud_name.startsWith(`${filterProvider}-`));
+            setFilteredClouds(newFilteredClouds);
+        }
+    }, [clouds, filterProvider]);
+
+    const handlerFilterProvider = (event: React.ChangeEvent<{ value: Provider }>) => {
+        setFilterProvider(event.target.value as Provider);
+    };
+
     return (
         <DefaultLayout>
             <Typography variant="h5" gutterBottom>
                 Clouds list (Alpha version)
             </Typography>
-            <CloudsDataGrid data={clouds} isLoading={isLoading}/>
+            <FilterProvider filterProvider={filterProvider} onChange={handlerFilterProvider}/>
+
+            <CloudsDataGrid data={filteredClouds} isLoading={isLoading}/>
         </DefaultLayout>
     );
 }
